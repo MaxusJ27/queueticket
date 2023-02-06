@@ -10,7 +10,6 @@ const fetchData = () => {
         .then((data) => data);
 }
 const ManagementCard = ({ num, online }) => {
-    // const [id, setID] = useState(0);
     const [currentStatus, setCurrentStatus] = useState(true);
     const dispatch = useDispatch();
 
@@ -47,7 +46,6 @@ const ManagementCard = ({ num, online }) => {
                     // if id is disabled then don't fetch data 
                     if (online) {
                         let currentNum = await fetchData();
-                        // console.log(currentNum.currentVal)
                         if (currentNum.currentVal === 'No tickets in waiting queue') {
                             dispatch(setCurrentNum({currentNum: currentNum.currentVal}))
                         }
@@ -68,19 +66,16 @@ const ManagementCard = ({ num, online }) => {
 }
 const Management = () => {
     let counterNums = [];
-    // const counterNums = [1, 2, 3, 4];
     const counters = useSelector(state => state.counters);
-    // sample_object.map((object) => counterNums.push({'id': object.id, 'online': object.online}));
     counters.map((counter) =>
         counterNums.push({ 'id': counter.id, 'online': counter.online })
     );
 
-    console.log(counterNums)
     return (
         <div className='bg-black w-full h-screen grid justify-center mt-20'>
 
             <div className='flex flex-row gap-x-10'>
-                {counterNums.map(nums => <ManagementCard key={nums} num={nums.id} online={nums.online} />)}
+                {counterNums.map(nums => <ManagementCard key={nums.id} num={nums.id} online={nums.online} />)}
             </div>
         </div>
 

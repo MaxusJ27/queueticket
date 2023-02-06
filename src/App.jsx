@@ -8,8 +8,7 @@ import {
 } from "react-router-dom";
 
 import Customer from './views/Customer';
-import Management
-  from './views/Management';
+import Management from './views/Management';
 function App() {
   return (
     <Router>
