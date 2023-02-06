@@ -13,7 +13,7 @@ import Management
 function App() {
   return (
     <Router>
-      <div className='flex flex-col bg-black text-white'>
+      <div className='flex flex-col h-screen bg-black text-white'>
         <nav >
           <ul className='flex flex-row gap-40 justify-center mt-5'>
             <li>
@@ -26,8 +26,10 @@ function App() {
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}
+        {/*
+        Handles routing between the Management and Customer screen
+        So that both can run at the same time 
+        */}
         <Routes>
           <Route path="/customer" element={<Customer/>} />
           <Route path="/management" element={<Management/>} />

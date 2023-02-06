@@ -4,30 +4,36 @@ import { useEffect } from 'react';
 import CustomerCounter from './CustomerCounter';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentNum } from '../counters/currentSlice';
+// function to generate ticket number 
 function generateNumber() {
   // generate a random whole number between 1 and 1000
   return Math.floor((Math.random() * 1000) + 1);
 
 }
-
+// the main screen for the customer
 const Serving = () => {
-  const [generatedNumber, setGeneratedNumber] = useState(0);
 
+  const [generatedNumber, setGeneratedNumber] = useState(0);
+  // gets the end of queue to be displayed as value for Now Serving
   const fetchEnd = () => {
     fetch('http://localhost:5000/end')
       .then((response) => response.json())
-      .then((data) => setGeneratedNumber(data));
+      .then((data) => setGeneratedNumber(data.end));
   }
+  // fetches the end of the queue 
+  // so that value remains the same when changing to Management 
+  // screen or refreshing
   useEffect(() => {
     fetchEnd();
-    // fetchHead();
-
   }, [])
 
+  // get states from Redux layer
   const counters = useSelector(state => state.counters);
   const currentNum = useSelector(selectCurrentNum);
 
   const dispatch = useDispatch();
+
+  // function to enqueue random ticket number into queue when clicked
   const handleClick = (e) => {
     e.preventDefault()
     // fetchHead();

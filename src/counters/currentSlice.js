@@ -1,7 +1,7 @@
 import { createSlice} from "@reduxjs/toolkit";
-
+// handle state change of number between
 const initialState = {
-    currentNum: null,
+    currentNum: '',
 }
 
 const currentSlice = createSlice({

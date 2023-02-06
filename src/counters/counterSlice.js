@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-// for updating states online and active, we will use redux 
-// to Redux 
-// set up initial state of 4 counters 
+/*
+Handles state change communication Management and Customer view
+*/
 const initialState = [
     {
         id: 1,
