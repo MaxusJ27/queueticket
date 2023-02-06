@@ -1,8 +1,6 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import CustomerCounter from './CustomerCounter';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectCurrentNum } from '../counters/currentSlice';
 // function to generate ticket number 
 function generateNumber() {
@@ -31,7 +29,6 @@ const Serving = () => {
   const counters = useSelector(state => state.counters);
   const currentNum = useSelector(selectCurrentNum);
 
-  const dispatch = useDispatch();
 
   // function to enqueue random ticket number into queue when clicked
   const handleClick = (e) => {

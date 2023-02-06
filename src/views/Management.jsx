@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { selectOnline, setActive, setNumber, setOnline } from '../counters/counterSlice';
+import { setActive, setNumber, setOnline } from '../counters/counterSlice';
 import { setCurrentNum } from '../counters/currentSlice';
 
 // function to fetch the current dequeued value 
